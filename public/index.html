@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Ember Starter Kit</title>
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <script type="text/x-handlebars">
+    <div class="container">
+      <div class="navbar">
+        <div class="navbar-inner">
+          <a class="brand" href="#">Ember Digest</a>
+          <ul class="nav pull-right">
+            <li>{{#linkTo articles}}Articles{{/linkTo}}</li>
+            <li>{{#linkTo photos}}Photos{{/linkTo}}</li>
+            <li>{{#linkTo login}}Login{{/linkTo}}</li>
+          </ul>
+        </div>
+      </div>
+
+      {{outlet}}
+    </div>
+  </script>
+
+  <script type="text/x-handlebars" data-template-name="index">
+    <h1>Welcome to Ember Digest</h1>
+    <p>Here we got all sorts of content!</p>
+  </script>
+
+  <script type="text/x-handlebars" data-template-name="articles">
+    <h2>Articles</h2>
+
+    {{#each model}}
+      <article>
+        <h3>{{title}}</h3>
+        <p>Posted by {{author}}</p>
+        <p>{{body}}</p>
+      </article>
+    {{/each}}
+  </script>
+
+  <script type="text/x-handlebars" data-template-name="photos">
+    <h2>Photos</h2>
+
+    <div class="row">
+      <ul id="photos" class="thumbnails">
+        {{#each model}}
+          <li class="span4">
+            <span class="thumbnail">
+              <img {{bindAttr src="src"}} />
+            </span>
+          </li>
+        {{/each}}
+      </ul>
+    </div>
+  </script>
+
+  <script type="text/x-handlebars" data-template-name="login">
+    {{#if loggedIn}}
+      <p>You are already logged in!</p>
+    {{else}}
+      <form class="form-inline" {{action login on="submit"}}>
+        <h2>Log In</h2>
+        {{input value=username type="text" placeholder="Username"}}
+        {{input value=password type="password" placeholder="Password"}}
+        {{input class="btn" type="submit" value="Log In"}}
+      </form>
+      {{#if errorMessage}}
+        <div class="alert alert-error">{{errorMessage}}</div>
+      {{/if}}
+    {{/if}}
+  </script>
+
+  <script src="js/libs/jquery-1.9.1.js"></script>
+  <script src="js/libs/handlebars-1.0.0-rc.4.js"></script>
+  <script src="js/libs/ember-1.0.0-rc.6.js"></script>
+  <script src="js/app.js"></script>
+
+</body>
+</html>

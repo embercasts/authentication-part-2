@@ -1,0 +1,12 @@
+{
+  "name": "embercast-auth-server",
+  "description": "Simple server used in the Authentication Embercast",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "express": "3.x"
+  },
+  "devDependencies": {
+    "nodemon": "*"
+  }
+}

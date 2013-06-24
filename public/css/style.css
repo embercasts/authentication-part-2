@@ -1,0 +1,26 @@
+/* Put your CSS here */
+html, body {
+    margin: 20px;
+
+    /*this is just to prevent scrollbars for cast*/
+    overflow: hidden;
+}
+
+
+#photos {
+  margin-left: 0;
+  margin-right: -20px;
+}
+
+#loading-overlay {
+  background: rgba(255,255,255,0.7);
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  text-align: center;
+}
+
+#loading-overlay h2 {
+  padding-top: 10%;
+  margin: 0;
+}
+
